@@ -9,7 +9,7 @@ from model.persist import load_model
 
 
 
-app= Flask(__name__)
+app = Flask(__name__, template_folder='../templates')
 
 
 
