@@ -20,13 +20,7 @@ def index():
     #return "Testing, testing"
     return render_template("index.html")
 
-@app.route('/visualisation')
-def visualisation():
-    return render_template('visualisation.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 
 
