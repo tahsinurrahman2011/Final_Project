@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from flask import Flask, jsonify, render_template, request
 from joblib import load
-
-
+import model.persist
+from model.persist import load_model
 
 
 app = Flask(__name__, template_folder='../templates')
