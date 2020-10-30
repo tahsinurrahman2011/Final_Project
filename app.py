@@ -8,10 +8,7 @@ import model.persist
 from model.persist import load_model
 
 
-app = Flask(__name__)
-
-
-
+app= Flask(__name__)
 @app.route('/')
 def index():
     """
@@ -19,27 +16,18 @@ def index():
     """
     #return "Testing, testing"
     return render_template("index.html")
-
-
-
-
-
 @app.route('/predict', methods=["POST"])
 def predict_test():
     data = request.json
-
     col_order = [
         "femaleh", "hhsize", "rural", "Low_education", "Low_income",
-        "Sumatra", "Java and Bali", "Kalimantan", "Sulawesi", "Childlabour_05", 
+        "Sumatra", "Java and Bali", "Kalimantan", "Sulawesi", "Childlabour_05",
         "age_0t6", "age_7t12", "age_13t15", "age_16t18", "age_19t60", "age_61"
     ]
-
  # convert femaleh to binary variable
     rename_cols = {
         "femaleh": "femaleh",
     }
-    
-
     if (data["femaleh"] == "female"):
         data["femaleh"] = 1
     else:
@@ -48,7 +36,7 @@ def predict_test():
     if (data["rural"] == "rural"):
         data["rural"] = 1
     else:
-        data["rural"] = 0 
+        data["rural"] = 0
 # convert low_education to binary variable
     if (data["Low_education"] == "low education"):
         data["Low_education"] = 1
@@ -59,7 +47,6 @@ def predict_test():
         data["Low_income"] = 1
     else:
         data["Low_income"] = 0
-
     # convert region to regional dummy variables
     if (data["region"] == "Sumatra"):
         data["Sumatra"] = 1
@@ -75,7 +62,7 @@ def predict_test():
         data["Sumatra"] = 0
         data["Java and Bali"] = 0
         data["Kalimantan"] = 1
-        data["Sulawesi"] = 0  
+        data["Sulawesi"] = 0
     elif (data["region"] == "Sulawesi"):
         data["Sumatra"] = 0
         data["Java and Bali"] = 0
@@ -86,16 +73,11 @@ def predict_test():
         data["Java and Bali"] = 0
         data["Kalimantan"] = 0
         data["Sulawesi"] = 0
-
     del data["region"]
-
-
     if (data["Childlabour_05"] == "Yes"):
         data["Childlabour_05"] = 1
     else:
         data["Childlabour_05"] = 0
-
-
     # rename columns and sort as per the
     # order columns were trained on
     try:
@@ -104,15 +86,9 @@ def predict_test():
         print("Error Parsing Input Data")
         print(e)
         return "Error"
-
-    X = df.values   
-
+    X = df.values
     model=load_model()
-
     result = model.predict(X).tolist()
-
     return jsonify({"result": result})
-
 if __name__ == '__main__':
     app.run(debug=True)
-
