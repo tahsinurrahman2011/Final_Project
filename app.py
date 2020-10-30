@@ -12,6 +12,7 @@ from model.persist import load_model
 app= Flask(__name__)
 
 
+
 @app.route('/')
 def index():
     """
@@ -19,6 +20,10 @@ def index():
     """
     #return "Testing, testing"
     return render_template("index.html")
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 
