@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Child labour risk factors</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+    <!-- Creates the Overall Grid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Child labour risk assessment</h1>
+            </div>
+        </div>
+<!-- =====================ROW 1 of INPUT FIELDS===========================================================================================================-->
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="femaleh">Gender of Head of Household</label>
+                    <select class="form-control" id="femaleh">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="inputhhsize">Number of household members</label>
+                    <input type="number" min="1" class="form-control" id="inputhhsize" value=1>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="rural">Rural or Urban household</label>
+                    <select class="form-control" id="rural">
+                        <option value="rural">Rural</option>
+                        <option value="urban">Urban</option>
+                    </select>
+                </div>
+
+            </div>
+<!-- =======================ROW 2 of INPUT FIELDS=========================================================================================================-->
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="low_education">Education</label>
+                    <select class="form-control" id="low_education">
+                        <option value="low education">primary or no education</option>
+                        <option value="more education">high school or above</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="low_income">Income</label>
+                    <select class="form-control" id="low_income">
+                        <option value="low income">income quintile 1</option>
+                        <option value="more income">income quintile 2 or higher</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="region">Region of Indonesia</label>
+                    <select class="form-control" id="region">                        
+                        <option value="Sumatra">Sumatra</option>
+                        <option value="Java">Java and Bali</option>
+                        <option value="Kalimantan">Kalimantan</option>
+                        <option value="Sulawesi">Sulawesi</option>
+                        <option value="Other">Other islands</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="childlabour_05">Any children already working?</label>
+                    <select class="form-control" id="childlabour_05">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+
+            </div>
+<!-- =======================ROW 3 of INPUT FIELDS=========================================================================================================-->
+            <div class="form-row">
+
+                <div class="form-group col-md-3">
+                    <label for="age_0t6">Household members age 0 to 6</label>
+                    <input type="number" min="0" class="form-control" id="age_0t6" value=0>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="age_7t12">Household members age 7 to 12</label>
+                    <input type="number" min="0" class="form-control" id="age_7t12" value=0>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="age_13t15">Household members age 13 to 15</label>
+                    <input type="number" min="0" class="form-control" id="age_13t15" value=0>
+                </div>
+
+
+            </div>
+
+<!-- =======================ROW 4 of INPUT FIELDS=========================================================================================================-->
+<div class="form-row">
+
+    <div class="form-group col-md-3">
+        <label for="age_16t18">Household members age 16 to 18</label>
+        <input type="number" min="0" class="form-control" id="age_16t18" value=0>
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="age_19t60">Household members age 19 to 60</label>
+        <input type="number" min="0" class="form-control" id="age_19t60" value=0>
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="age_61">Household members 61 and older</label>
+        <input type="number" min="0" class="form-control" id="age_61" value=0>
+    </div>
+
+<!-- =======================SUBMIT FORM=========================================================================================================-->
+</div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <button id="doCheckTicket" type="submit" class="btn btn-primary">Check household risk</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="form-group col-md-12"></div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <div id="alertOutcome" class="alert alert-primary" role="alert">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript" src="static/js/app.js"></script>
+
+</body>
+
+</html>
