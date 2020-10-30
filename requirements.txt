@@ -52,7 +52,7 @@ MarkupSafe==1.1.1
 matplotlib 
 mistune==0.8.4
 mrjob==0.7.4
-multidict 
+multidict==4.5 
 nbclient 
 nbconvert 
 nbformat==5.0.7
@@ -84,7 +84,6 @@ pyparsing==2.4.7
 pyreadline==2.1
 pyrsistent 
 PySocks==1.7.1
-pyspark 
 python-dateutil==2.8.1
 pytz==2020.1
 pywinpty==0.5.7
@@ -99,9 +98,6 @@ seaborn==0.11.0
 Send2Trash==1.5.0
 six==1.15.0
 statsmodels==0.12.0
-tensorboard==2.2.1
-tensorflow==2.1.0
-tensorflow-estimator==2.1.0
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
