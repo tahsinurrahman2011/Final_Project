@@ -51,8 +51,6 @@ Markdown
 MarkupSafe==1.1.1
 matplotlib 
 mistune==0.8.4
-mkl-random==1.1.1
-mkl-service==2.3.0
 mrjob==0.7.4
 multidict 
 nb-conda-kernels 
